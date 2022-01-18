@@ -1,0 +1,13 @@
+[http.middlewares.simpleAuth.basicAuth]
+  users = [
+    "admin:$apr1$bfQjGnya$qQgydxi8CkvtM6ZhhmKRt1"
+  ]
+
+[http.routers.api]
+  rule = "Host(`traefik.inzidenzberechnung.de`)"
+  entrypoints = ["websecure"]
+  middlewares = ["simpleAuth"]
+  service = "api@internal"
+  [http.routers.api.tls]
+    certResolver = "lets-encrypt"
+
