@@ -4,7 +4,7 @@
   ]
 
 [http.routers.api]
-  rule = "Host(`traefik.inzidenzberechnung.de`) || Host(`inzidenzberechnung.de`)"
+  rule = "Host(`traefik.inzidenzberechnung.de`)"
   entrypoints = ["websecure"]
   middlewares = ["simpleAuth"]
   service = "api@internal"
